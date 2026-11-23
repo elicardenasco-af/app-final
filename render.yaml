@@ -1,0 +1,18 @@
+# Despliegue del backend (API REST en Next.js) en Render.
+# Render lee este archivo al crear el servicio desde el repositorio de GitHub.
+services:
+  - type: web
+    name: app-final-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/config
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d

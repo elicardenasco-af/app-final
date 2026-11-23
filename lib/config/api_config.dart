@@ -23,5 +23,7 @@ class ApiConfig {
     return Uri.parse(baseUrl).resolve(url).toString();
   }
 
-  static const Duration timeout = Duration(seconds: 15);
+  // 60 s: el plan gratis de Render "duerme" el servidor y la primera
+  // petición puede tardar cerca de un minuto en despertarlo.
+  static const Duration timeout = Duration(seconds: 60);
 }

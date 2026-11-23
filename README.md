@@ -44,7 +44,30 @@ Si no configuras SMTP en `backend/.env.local`, el backend usa una cuenta de prue
 [Ethereal](https://ethereal.email) e imprime en la consola el enlace de restablecimiento
 y la URL para ver el correo. El enlace abre la pantalla `/reset-password` del backend.
 
-## 4. Pruebas
+## 4. Despliegue del backend en Render
+
+El archivo `render.yaml` configura el backend como servicio web gratuito en
+[Render](https://render.com):
+
+1. Abre https://render.com/deploy?repo=https://github.com/elicardenasco-af/app-final
+2. Inicia sesión con GitHub y confirma con **Deploy Blueprint**.
+3. Render publica la API en `https://<servicio>.onrender.com/api`.
+
+Plan gratuito: el servidor se duerme tras 15 min sin uso (la primera petición tarda
+cerca de un minuto) y los usuarios registrados se borran cuando se reinicia; el
+catálogo se vuelve a crear solo.
+
+## 5. Generar el APK
+
+```bash
+./scripts/build_apk.sh https://<servicio>.onrender.com/api   # backend en Render
+./scripts/build_apk.sh                                       # backend en este PC (misma Wi-Fi)
+```
+
+El APK queda en `backend/public/downloads/TiendaApp.apk` y se descarga desde la
+página principal del backend (botón **Descargar app**).
+
+## 6. Pruebas
 
 ```bash
 flutter test
