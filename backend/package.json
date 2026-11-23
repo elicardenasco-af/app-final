@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API REST para la App E-Commerce (Next.js)",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.18",
+    "next": "^16.4.6",
+    "nodemailer": "^10.6.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

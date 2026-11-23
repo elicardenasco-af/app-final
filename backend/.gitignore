@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+data/*.db
+data/*.db-*
+.env*.local
+.env
+next-env.d.ts
+*.tsbuildinfo
+
+# APK generado con scripts/build_apk.sh
+/public/downloads/
