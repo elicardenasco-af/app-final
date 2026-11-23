@@ -26,6 +26,11 @@ de ejemplo automáticamente en la primera petición.
 
 ## 2. Ejecutar la app Flutter
 
+**Desde VS Code:** en *Ejecutar y depurar* elige **Tienda App (con backend)** y presiona F5.
+El backend se enciende solo antes de abrir la app (si ya estaba encendido, no se duplica).
+
+**Desde la terminal** (con el backend encendido):
+
 ```bash
 flutter pub get
 flutter run

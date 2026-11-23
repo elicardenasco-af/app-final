@@ -35,6 +35,11 @@ class ApiClient {
   Future<Map<String, dynamic>> put(String path, [Object? body]) =>
       _send('PUT', path, body: body);
 
+  /// Mensaje cuando no hay respuesta: indica a qué dirección se intentó conectar.
+  static String get _connectionError =>
+      'No se pudo conectar con el servidor (${ApiConfig.baseUrl}). '
+      'Verifica que el backend esté encendido y que tengas conexión.';
+
   Future<Map<String, dynamic>> _send(
     String method,
     String path, {
@@ -56,9 +61,9 @@ class ApiClient {
     } on TimeoutException {
       throw ApiException(0, 'El servidor tardó demasiado en responder');
     } on SocketException {
-      throw ApiException(0, 'No se pudo conectar con el servidor');
+      throw ApiException(0, _connectionError);
     } on http.ClientException {
-      throw ApiException(0, 'No se pudo conectar con el servidor');
+      throw ApiException(0, _connectionError);
     }
 
     Map<String, dynamic> data = {};
